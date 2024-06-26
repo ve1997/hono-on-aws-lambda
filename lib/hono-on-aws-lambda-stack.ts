@@ -20,11 +20,24 @@ export class HonoOnAwsLambdaStack extends cdk.Stack {
 		fn.addFunctionUrl({
 			authType: lambda.FunctionUrlAuthType.NONE,
 		});
-		new apigw.LambdaRestApi(this, "hono-on-aws-lambda", {
+		const api = new apigw.LambdaRestApi(this, "hono-on-aws-lambda", {
 			handler: fn,
+			proxy: false,
 			deployOptions: {
 				stageName: "dev",
 			},
 		});
+
+		// add a GET method to the root resource
+		api.root.addMethod("GET");
+		// add a GET method to the /register resource
+		const register = api.root.addResource("register");
+		register.addMethod("GET");
+		// add a GET method to the /search resource
+		const search = api.root.addResource("search");
+		search.addMethod("GET");
+		// add a GET method to the /user resource
+		const user = api.root.addResource("user");
+		user.addMethod("GET");
 	}
 }
