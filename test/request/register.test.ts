@@ -1,10 +1,6 @@
 import { routes } from "@/lambda";
+import rb from "@/mock/rb.json";
 import { describe, expect, it } from "vitest";
-
-const rb = {
-	uname: "Hono",
-	email: "example@example.com",
-};
 
 describe("Lambda function tests with Request Method for the '/register' endpoint", () => {
 	it("should return 'Hello, registerRoute!' for GET '/register'", async () => {

@@ -1,0 +1,5 @@
+You can use the mock file to execute a POST method with curl as follows
+
+```sh
+curl -i -X POST -H "Content-Type: application/json" -d @mock/rb.json {endpoints}
+```
