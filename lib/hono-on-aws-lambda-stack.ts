@@ -30,9 +30,10 @@ export class HonoOnAwsLambdaStack extends cdk.Stack {
 
 		// add a GET method to the root resource
 		api.root.addMethod("GET");
-		// add a GET method to the /register resource
+		// add a GET/POST method to the /register resource
 		const register = api.root.addResource("register");
 		register.addMethod("GET");
+		register.addMethod("POST");
 		// add a GET method to the /search resource
 		const search = api.root.addResource("search");
 		search.addMethod("GET");
