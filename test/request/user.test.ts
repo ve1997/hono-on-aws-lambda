@@ -7,4 +7,9 @@ describe("Lambda function tests with Request Method for the '/user' endpoint", (
 		expect(res.status).toBe(200);
 		expect(await res.text()).toBe("Hello, userRoute!");
 	});
+	it("should return 'Your ID is 123!' for GET '/user/123'", async () => {
+		const res = await routes.request("/user/123");
+		expect(res.status).toBe(200);
+		expect(await res.text()).toBe("Your ID is 123!");
+	});
 });

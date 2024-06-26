@@ -39,5 +39,8 @@ export class HonoOnAwsLambdaStack extends cdk.Stack {
 		// add a GET method to the /user resource
 		const user = api.root.addResource("user");
 		user.addMethod("GET");
+		// add a GET method to the /user/:id resource
+		const userId = user.addResource("{id}");
+		userId.addMethod("GET");
 	}
 }

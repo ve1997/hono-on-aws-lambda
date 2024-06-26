@@ -8,4 +8,11 @@ describe("Lambda function tests with Testing Helper for the '/user' endpoint", (
 		expect(res.status).toBe(200);
 		expect(await res.text()).toBe("Hello, userRoute!");
 	});
+	it("should return 'Your ID is 123!' for GET '/user/123'", async () => {
+		const res = await testClient(routes).user[":id"].$get({
+			param: { id: "123" },
+		});
+		expect(res.status).toBe(200);
+		expect(await res.text()).toBe("Your ID is 123!");
+	});
 });
