@@ -2,7 +2,7 @@ import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
 import { z } from "zod";
 
-const searchSchema = z.object({
+export const searchSchema = z.object({
 	q: z.string().min(1, "Search query must not be empty!"),
 });
 
