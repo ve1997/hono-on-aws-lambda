@@ -26,6 +26,11 @@ export class HonoOnAwsLambdaStack extends cdk.Stack {
 			deployOptions: {
 				stageName: "dev",
 			},
+			defaultCorsPreflightOptions: {
+				allowOrigins: apigw.Cors.ALL_ORIGINS,
+				allowMethods: apigw.Cors.ALL_METHODS,
+				allowHeaders: apigw.Cors.DEFAULT_HEADERS,
+			},
 		});
 
 		// add a GET method to the root resource
